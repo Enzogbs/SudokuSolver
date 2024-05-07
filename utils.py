@@ -82,7 +82,7 @@ def get_ROI(img, process=False):
         ret = cv2.GaussianBlur(ret, (3, 3), 1)
         kernel = np.ones((2, 2), np.uint8)
         ret = cv2.morphologyEx(ret, cv2.MORPH_CLOSE, kernel)
-        img, ret = cv2.threshold(ret, 45, 255, cv2.THRESH_BINARY)
+        _, ret = cv2.threshold(ret, 45, 255, cv2.THRESH_BINARY)
         ret = cv2.morphologyEx(ret, cv2.MORPH_OPEN, kernel)
         ret = cv2.GaussianBlur(ret , (3, 3), 1)
 
